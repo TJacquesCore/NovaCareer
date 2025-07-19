@@ -1,0 +1,647 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #F8F8F8;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Sections générales */
+.section-padded {
+    padding: 80px 0;
+}
+
+.bg-light-blue {
+    background-color: #e0f2f7;
+}
+
+h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: clamp(2em, 5vw, 3em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espace entre l'icône et le texte */
+}
+
+h3 {
+    color: #007bff;
+    font-size: clamp(1.8em, 4vw, 2.5em);
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.8;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+}
+
+.small-text {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Boutons génériques */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex; /* Pour aligner l'icône et le texte */
+    align-items: center;
+    gap: 8px; /* Espace entre l'icône et le texte */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Header */
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(1.8em, 4vw, 2.5em);
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+}
+
+.nav-links li a:hover {
+    color: #e0e0e0;
+}
+
+/* Burger Menu - Styles for mobile */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section (Mainly for initial landing, could be a dashboard summary) */
+#hero {
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+    padding: 80px 0;
+}
+
+#hero h2 {
+    font-size: clamp(2em, 5vw, 3em);
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+#hero p {
+    font-size: clamp(1em, 2.5vw, 1.2em);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Profile Section */
+.profile-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 25px;
+    border: 3px solid #007bff;
+}
+
+.profile-header h3 {
+    margin: 0;
+    font-size: 2em;
+    color: #333;
+    text-align: left; /* Override global h3 text-align */
+}
+
+.profile-status {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 5px;
+}
+
+.verified-badge {
+    background-color: #28a745; /* Vert pour vérifié */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-left: auto; /* Pousse le badge à droite */
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-details h4 {
+    color: #007bff;
+    font-size: 1.4em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+}
+
+.profile-details p {
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.skill-tag {
+    background-color: #e0f2f7; /* Bleu clair */
+    color: #007bff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience-list li {
+    background: none; /* Override default list style */
+    padding-left: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.credibility-score {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #28a745; /* Vert */
+}
+
+/* Upload CV Section */
+.upload-area {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.hidden-input {
+    display: none;
+}
+
+.file-name {
+    font-style: italic;
+    color: #555;
+}
+
+.upload-btn {
+    margin-top: 20px;
+}
+
+.upload-info {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 15px;
+}
+
+.upload-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.upload-message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.upload-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Offers Section */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.search-input, .filter-select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    flex: 1 1 auto; /* Permet aux filtres de s'adapter */
+    min-width: 180px;
+    max-width: 250px;
+}
+
+.offers-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.offer-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Pour positionner le badge de matching */
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.offer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.offer-card h4 {
+    color: #007bff;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 0; /* Ajusté pour le flexbox */
+    text-align: left;
+    flex-grow: 1;
+}
+
+.match-score {
+    background-color: #28a745; /* Vert pour le score */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-left: 15px;
+    flex-shrink: 0; /* Empêche le score de rétrécir */
+}
+
+.offer-card p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.offer-card .description {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.details-btn { /* Nouveau style pour le bouton "Voir les détails" */
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+
+/* Chatbot Section */
+.chatbot-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 500px; /* Hauteur fixe pour le chat */
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    line-height: 1.5;
+    word-wrap: break-word; /* Empêche le débordement de texte */
+}
+
+.user-message {
+    background-color: #007bff;
+    color: #fff;
+    align-self: flex-end; /* Aligne les messages utilisateur à droite */
+    border-bottom-right-radius: 5px;
+}
+
+.bot-message {
+    background-color: #e0f2f7;
+    color: #333;
+    align-self: flex-start; /* Aligne les messages du bot à gauche */
+    border-bottom-left-radius: 5px;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 1em;
+}
+
+/* Footer */
+footer {
+    background-color: #007bff;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #e0e0e0;
+}
+
+/* Responsive Design (Media Queries) */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 15px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        background-color: #0056b3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+        padding-top: 60px;
+        z-index: 10;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin: 20px 0;
+    }
+
+    .burger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 30px;
+        z-index: 20;
+    }
+
+    /* Burger Animation */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Active Nav State */
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    /* Nav Link Fade Animation */
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .profile-header h3 {
+        text-align: center;
+    }
+    .verified-badge {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .skills-list {
+        justify-content: center;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    .search-input, .filter-select {
+        max-width: 90%;
+    }
+
+    .offers-list {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .chatbot-container {
+        height: 400px; /* Ajuste la hauteur du chat sur mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-padded {
+        padding: 50px 0;
+    }
+    h2 {
+        font-size: clamp(1.8em, 7vw, 2.5em);
+    }
+    h3 {
+        font-size: clamp(1.5em, 6vw, 2em);
+    }
+    p {
+        font-size: 1em;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .nav-links {
+        width: 80%;
+    }
+    .profile-card, .upload-area, .chatbot-container {
+        padding: 20px;
+    }
+    .file-input-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .file-name {
+        text-align: center;
+    }
+}

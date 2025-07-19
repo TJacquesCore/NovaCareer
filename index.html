@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobMatch IA - Plateforme Étudiant</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>JobMatch IA</h1>
+            <nav id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#dashboard">Mon Profil</a></li>
+                    <li><a href="#upload-cv">Upload CV</a></li>
+                    <li><a href="#offers">Mes Offres</a></li>
+                    <li><a href="#chatbot">Chatbot IA</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="dashboard" class="section-padded">
+            <div class="container">
+                <h2><i class="fas fa-user-circle"></i> Mon Profil Étudiant</h2>
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img src="https://placehold.co/100x100/007bff/FFFFFF?text=JP" alt="Photo de profil" class="profile-avatar">
+                        <h3>Jean-Pierre Dupont</h3>
+                        <p class="profile-status">Étudiant en Master Informatique</p>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i> Profil Vérifié</span>
+                    </div>
+                    <div class="profile-details">
+                        <h4>Informations Personnelles</h4>
+                        <p><strong>Email:</strong> jeanpierre.dupont@email.com</p>
+                        <p><strong>Téléphone:</strong> +33 6 12 34 56 78</p>
+                        <p><strong>Localisation:</strong> Abidjan, Côte d'Ivoire</p>
+
+                        <h4>Compétences Clés</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Développement Web (React, Node.js)</span>
+                            <span class="skill-tag">Machine Learning (Python, TensorFlow)</span>
+                            <span class="skill-tag">Gestion de Projet Agile</span>
+                            <span class="skill-tag">Analyse de Données</span>
+                        </div>
+
+                        <h4>Expérience Professionnelle</h4>
+                        <ul class="experience-list">
+                            <li>**Stagiaire Développeur IA** - Tech Solutions (Jan 2024 - Juin 2024)</li>
+                            <li>**Assistant Marketing Digital** - E-Commerce Africa (Juillet 2023 - Déc 2023)</li>
+                        </ul>
+
+                        <h4>Score de Crédibilité du CV : <span class="credibility-score">92%</span></h4>
+                        <p class="small-text">Basé sur l'analyse IA et les documents justificatifs.</p>
+                    </div>
+                    <button class="btn-primary"><i class="fas fa-edit"></i> Modifier mon profil</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="upload-cv" class="section-padded bg-light-blue">
+            <div class="container">
+                <h2><i class="fas fa-cloud-upload-alt"></i> Télécharger votre CV</h2>
+                <div class="upload-area">
+                    <p>Mettez à jour votre CV pour des recommandations plus précises.</p>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="cvFile" accept=".pdf,.doc,.docx" class="hidden-input">
+                        <label for="cvFile" class="btn-secondary"><i class="fas fa-file-upload"></i> Choisir un fichier</label>
+                        <span id="fileName" class="file-name">Aucun fichier choisi</span>
+                    </div>
+                    <button class="btn-primary upload-btn" id="uploadCvBtn" disabled><i class="fas fa-paper-plane"></i> Envoyer le CV</button>
+                    <p class="upload-info">Formats acceptés : PDF, DOC, DOCX. Taille max : 5MB.</p>
+                    <div id="uploadMessage" class="upload-message"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="offers" class="section-padded">
+            <div class="container">
+                <h2><i class="fas fa-briefcase"></i> Mes Offres Recommandées</h2>
+                <div class="filters">
+                    <input type="text" id="searchOffers" placeholder="Rechercher par titre ou entreprise..." class="search-input">
+                    <select id="offerType" class="filter-select">
+                        <option value="all">Tous types</option>
+                        <option value="stage">Stage</option>
+                        <option value="emploi">Emploi</option>
+                    </select>
+                    <select id="offerDomain" class="filter-select">
+                        <option value="all">Tous domaines</option>
+                        <option value="it">IT & Développement</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="finance">Finance</option>
+                        <option value="rh">Ressources Humaines</option>
+                    </select>
+                </div>
+
+                <div class="offers-list" id="offersList">
+                    <!-- Les offres seront chargées ici par JS -->
+                    <div class="offer-card" data-type="stage" data-domain="it" data-match="95">
+                        <div class="offer-header">
+                            <h4>Stagiaire Développeur Fullstack</h4>
+                            <span class="match-score">95% Match</span>
+                        </div>
+                        <p class="company"><i class="fas fa-building"></i> InnovTech Solutions</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</p>
+                        <p class="duration"><i class="fas fa-calendar-alt"></i> 6 mois</p>
+                        <p class="description">Développement d'applications web avec React et Node.js. Expérience en base de données SQL requise.</p>
+                        <button class="btn-primary details-btn">Voir les détails</button>
+                    </div>
+                    <div class="offer-card" data-type="emploi" data-domain="marketing" data-match="88">
+                        <div class="offer-header">
+                            <h4>Chargé de Marketing Digital</h4>
+                            <span class="match-score">88% Match</span>
+                        </div>
+                        <p class="company"><i class="fas fa-building"></i> Global Brands Corp.</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Dakar, Sénégal</p>
+                        <p class="duration"><i class="fas fa-calendar-alt"></i> CDI</p>
+                        <p class="description">Gestion de campagnes publicitaires en ligne, SEO/SEM, analyse de performance. Expérience de 2 ans minimum.</p>
+                        <button class="btn-primary details-btn">Voir les détails</button>
+                    </div>
+                    <div class="offer-card" data-type="stage" data-domain="finance" data-match="72">
+                        <div class="offer-header">
+                            <h4>Stagiaire Analyste Financier</h4>
+                            <span class="match-score">72% Match</span>
+                        </div>
+                        <p class="company"><i class="fas fa-building"></i> Capital Invest</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Paris, France</p>
+                        <p class="duration"><i class="fas fa-calendar-alt"></i> 4 mois</p>
+                        <p class="description">Analyse de marchés, modélisation financière, support aux équipes d'investissement.</p>
+                        <button class="btn-primary details-btn">Voir les détails</button>
+                    </div>
+                    <div class="offer-card" data-type="emploi" data-domain="it" data-match="98">
+                        <div class="offer-header">
+                            <h4>Développeur Backend Senior</h4>
+                            <span class="match-score">98% Match</span>
+                        </div>
+                        <p class="company"><i class="fas fa-building"></i> CodeMasters Africa</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</p>
+                        <p class="duration"><i class="fas fa-calendar-alt"></i> CDI</p>
+                        <p class="description">Conception et implémentation d'APIs robustes avec Python/Django. Expérience en microservices un plus.</p>
+                        <button class="btn-primary details-btn">Voir les détails</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chatbot" class="section-padded bg-light-blue">
+            <div class="container">
+                <h2><i class="fas fa-robot"></i> Chatbot IA Coach Carrière</h2>
+                <div class="chatbot-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">Bonjour ! Je suis votre coach carrière IA. Comment puis-je vous aider aujourd'hui ?</div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" placeholder="Posez votre question..." class="chat-input">
+                        <button class="btn-primary" id="sendMessageBtn"><i class="fas fa-paper-plane"></i> Envoyer</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 JobMatch IA. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#">Conditions Générales</a>
+                <a href="#">Politique de Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
