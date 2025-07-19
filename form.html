@@ -4,43 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inscription Étudiant - ORIA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="form-etudiant.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles not easily done with Tailwind or for specific overrides */
+    body {
+      background-color: #f4f8ff; /* Body background color */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensures body takes full viewport height */
+    }
+    .header {
+      background-color: #0066cc; /* Header background color */
+    }
+    .footer {
+      background-color: #0066cc; /* Footer background color */
+      margin-top: auto; /* Pushes footer to the bottom */
+    }
+  </style>
 </head>
-<body>
-  <header class="header">
-    <div class="logo">ORIA</div>
+<body class="font-sans">
+  <header class="header text-white p-4 flex flex-col md:flex-row justify-between items-center shadow-md">
+    <div class="logo text-2xl font-bold mb-2 md:mb-0">ORIA</div>
     <nav class="nav">
-      <a href="index.html">Accueil</a>
-      <a href="entreprises.html">Entreprises</a>
-      <a href="etudiants.html">Étudiants</a>
+      <a href="index.html" class="text-white hover:underline mx-2 md:mx-4 text-lg">Accueil</a>
+      <a href="entreprises.html" class="text-white hover:underline mx-2 md:mx-4 text-lg">Entreprises</a>
+      <a href="etudiants.html" class="text-white hover:underline mx-2 md:mx-4 text-lg">Étudiants</a>
     </nav>
   </header>
 
-  <main class="main">
-    <section class="form-section">
-      <h1>Formulaire d’inscription Étudiant</h1>
-      <p>Complétez ce formulaire pour bénéficier de l’accompagnement personnalisé d’ORIA.</p>
+  <main class="main flex-grow container mx-auto px-4 py-8">
+    <section class="form-section bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto my-8">
+      <h1 class="text-3xl text-[#003366] mb-2 font-bold">Formulaire d’inscription Étudiant</h1>
+      <p class="text-gray-600 mb-8 text-lg">Complétez ce formulaire pour bénéficier de l’accompagnement personnalisé d’ORIA.</p>
       
       <form id="studentForm">
-        <div class="form-group">
-          <label for="fullname">Nom complet</label>
-          <input type="text" id="fullname" name="fullname" required />
+        <div class="mb-6">
+          <label for="fullname" class="block text-gray-800 text-lg font-medium mb-2">Nom complet</label>
+          <input type="text" id="fullname" name="fullname" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
         </div>
 
-        <div class="form-group">
-          <label for="email">Adresse email</label>
-          <input type="email" id="email" name="email" required />
+        <div class="mb-6">
+          <label for="email" class="block text-gray-800 text-lg font-medium mb-2">Adresse email</label>
+          <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
         </div>
 
-        <div class="form-group">
-          <label for="phone">Numéro de téléphone</label>
-          <input type="tel" id="phone" name="phone" required />
+        <div class="mb-6">
+          <label for="phone" class="block text-gray-800 text-lg font-medium mb-2">Numéro de téléphone</label>
+          <input type="tel" id="phone" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
         </div>
 
-        <div class="form-group">
-          <label for="field">Domaine d’intérêt</label>
-          <select id="field" name="field" required>
+        <div class="mb-6">
+          <label for="field" class="block text-gray-800 text-lg font-medium mb-2">Domaine d’intérêt</label>
+          <select id="field" name="field" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]">
             <option value="">-- Sélectionnez --</option>
             <option value="informatique">Informatique</option>
             <option value="santé">Santé</option>
@@ -50,20 +65,40 @@
           </select>
         </div>
 
-        <div class="form-group">
-          <label for="goal">Quel est votre objectif professionnel ?</label>
-          <textarea id="goal" name="goal" rows="4" required></textarea>
+        <div class="mb-6">
+          <label for="filiere" class="block text-gray-800 text-lg font-medium mb-2">Filière</label>
+          <input type="text" id="filiere" name="filiere" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
         </div>
 
-        <button type="submit" class="btn">Envoyer</button>
+        <div class="mb-6">
+          <label for="city" class="block text-gray-800 text-lg font-medium mb-2">Ville</label>
+          <input type="text" id="city" name="city" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
+        </div>
+
+        <div class="mb-6">
+          <label for="dob" class="block text-gray-800 text-lg font-medium mb-2">Date de naissance</label>
+          <input type="date" id="dob" name="dob" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
+        </div>
+
+        <div class="mb-6">
+          <label for="goal" class="block text-gray-800 text-lg font-medium mb-2">Quel est votre objectif professionnel ?</label>
+          <textarea id="goal" name="goal" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]"></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label for="additionalInfo" class="block text-gray-800 text-lg font-medium mb-2">Autres informations supplémentaires</label>
+          <textarea id="additionalInfo" name="additionalInfo" rows="4" class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 px-6 bg-blue-600 text-white font-bold text-xl rounded-lg hover:bg-blue-700 transition duration-300">Envoyer</button>
       </form>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer text-white text-center p-4 shadow-inner">
     © 2025 ORIA. Tous droits réservés.
   </footer>
 
-  <script src="form-etudiant.js"></script>
+  <script src="form.js"></script>
 </body>
 </html>
