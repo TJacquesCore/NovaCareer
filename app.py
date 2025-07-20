@@ -197,7 +197,7 @@ Donnez une recommandation détaillée du meilleur candidat en expliquant pourquo
 
     try:
         # Obtenir la réponse de Gemini
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-2.5-pro')
         response = model.generate_content(prompt)
         
         # Assurer qu'Aicha est recommandée
@@ -276,7 +276,7 @@ Questions d'entretien pour ce domaine :
         prompt += "\nAnalyse la réponse de l'étudiant par rapport à ces questions et donne une réponse professionnelle, encourageante et personnalisée qui guide l'étudiant vers les aspects importants de son domaine."""
 
         # Obtenir la réponse de Gemini
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-2.5-pro')
         response = model.generate_content(prompt)
         
         return jsonify({
