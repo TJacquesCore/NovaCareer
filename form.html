@@ -33,64 +33,108 @@
   </header>
 
   <main class="main flex-grow container mx-auto px-4 py-8">
-    <section class="form-section bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto my-8">
-      <h1 class="text-3xl text-[#003366] mb-2 font-bold">Formulaire d’inscription Étudiant</h1>
-      <p class="text-gray-600 mb-8 text-lg">Complétez ce formulaire pour bénéficier de l’accompagnement personnalisé d’ORIA.</p>
+    <section class="form-section bg-white p-8 rounded-xl shadow-lg max-w-3xl mx-auto my-8">
+      <h1 class="text-3xl text-[#003366] mb-2 font-bold text-center">Formulaire d’inscription Étudiant</h1>
+      <p class="text-gray-600 mb-8 text-lg text-center">Complétez ce formulaire pour bénéficier de l’accompagnement personnalisé d’ORIA.</p>
       
       <form id="studentForm">
-        <div class="mb-6">
-          <label for="fullname" class="block text-gray-800 text-lg font-medium mb-2">Nom complet</label>
-          <input type="text" id="fullname" name="fullname" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
+        <div class="mb-10 p-6 border border-gray-200 rounded-lg shadow-sm bg-gray-50">
+          <h2 class="text-2xl text-[#003366] font-semibold mb-6 pb-2 border-b border-gray-200">1. Coordonnées Personnelles</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="mb-4 md:mb-0">
+              <label for="firstName" class="block text-gray-800 text-lg font-medium mb-2">Prénom</label>
+              <input type="text" id="firstName" name="firstName" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+            <div class="mb-4 md:mb-0">
+              <label for="lastName" class="block text-gray-800 text-lg font-medium mb-2">Nom de famille</label>
+              <input type="text" id="lastName" name="lastName" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+            <div class="mb-4 md:mb-0">
+              <label for="email" class="block text-gray-800 text-lg font-medium mb-2">Adresse email</label>
+              <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+            <div class="mb-4 md:mb-0">
+              <label for="phone" class="block text-gray-800 text-lg font-medium mb-2">Numéro de téléphone</label>
+              <input type="tel" id="phone" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+            <div class="mb-4 md:mb-0">
+              <label for="dob" class="block text-gray-800 text-lg font-medium mb-2">Date de naissance</label>
+              <input type="date" id="dob" name="dob" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+            <div class="mb-4 md:mb-0">
+              <label for="country" class="block text-gray-800 text-lg font-medium mb-2">Pays</label>
+              <input type="text" id="country" name="country" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+            <div class="mb-4 md:mb-0">
+              <label for="city" class="block text-gray-800 text-lg font-medium mb-2">Ville</label>
+              <input type="text" id="city" name="city" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+            <div>
+              <label for="district" class="block text-gray-800 text-lg font-medium mb-2">Quartier (Optionnel)</label>
+              <input type="text" id="district" name="district" class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+          </div>
         </div>
 
-        <div class="mb-6">
-          <label for="email" class="block text-gray-800 text-lg font-medium mb-2">Adresse email</label>
-          <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
+        <div class="mb-10 p-6 border border-gray-200 rounded-lg shadow-sm bg-gray-50">
+          <h2 class="text-2xl text-[#003366] font-semibold mb-6 pb-2 border-b border-gray-200">2. Informations Académiques</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="mb-4 md:mb-0">
+              <label for="university" class="block text-gray-800 text-lg font-medium mb-2">Université / Établissement</label>
+              <input type="text" id="university" name="university" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+            <div class="mb-4 md:mb-0">
+              <label for="field" class="block text-gray-800 text-lg font-medium mb-2">Domaine d’intérêt</label>
+              <select id="field" name="field" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white">
+                <option value="">-- Sélectionnez --</option>
+                <option value="informatique">Informatique</option>
+                <option value="santé">Santé</option>
+                <option value="gestion">Gestion</option>
+                <option value="industrie">Industrie</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div>
+              <label for="filiere" class="block text-gray-800 text-lg font-medium mb-2">Filière</label>
+              <input type="text" id="filiere" name="filiere" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+            </div>
+          </div>
+          <div class="mt-6">
+            <label for="cv" class="block text-gray-800 text-lg font-medium mb-2">Télécharger votre CV (PDF, Word) <span class="text-gray-500 text-sm">(Max 5MB)</span></label>
+            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" class="w-full p-3 border border-gray-300 rounded-lg text-lg bg-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
+          </div>
         </div>
 
-        <div class="mb-6">
-          <label for="phone" class="block text-gray-800 text-lg font-medium mb-2">Numéro de téléphone</label>
-          <input type="tel" id="phone" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
+        <div class="mb-10 p-6 border border-gray-200 rounded-lg shadow-sm bg-gray-50">
+          <h2 class="text-2xl text-[#003366] font-semibold mb-6 pb-2 border-b border-gray-200">3. Votre Objectif Professionnel et Recherche d'Emploi</h2>
+          
+          <div class="mb-6">
+            <label for="desiredPosition" class="block text-gray-800 text-lg font-medium mb-2">Poste(s) recherché(s)</label>
+            <input type="text" id="desiredPosition" name="desiredPosition" placeholder="Ex: Développeur Full-stack, Chef de projet marketing" class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+          </div>
+
+          <div class="mb-6">
+            <label for="skills" class="block text-gray-800 text-lg font-medium mb-2">Vos compétences clés (séparées par des virgules)</label>
+            <textarea id="skills" name="skills" rows="3" placeholder="Ex: JavaScript, Python, Gestion de projet, Marketing digital" class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"></textarea>
+          </div>
+
+          <div class="mb-6">
+            <label for="motivationLetter" class="block text-gray-800 text-lg font-medium mb-2">Votre mot de motivation (Optionnel)</label>
+            <textarea id="motivationLetter" name="motivationLetter" rows="6" placeholder="Présentez votre parcours et vos motivations pour le poste idéal..." class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"></textarea>
+          </div>
+
+          <div class="mb-6">
+            <label for="goal" class="block text-gray-800 text-lg font-medium mb-2">Quel est votre objectif professionnel ?</label>
+            <textarea id="goal" name="goal" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"></textarea>
+          </div>
+          
+          <div>
+            <label for="additionalInfo" class="block text-gray-800 text-lg font-medium mb-2">Autres informations supplémentaires (Expériences professionnelles...)</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4" class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"></textarea>
+          </div>
         </div>
 
-        <div class="mb-6">
-          <label for="field" class="block text-gray-800 text-lg font-medium mb-2">Domaine d’intérêt</label>
-          <select id="field" name="field" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]">
-            <option value="">-- Sélectionnez --</option>
-            <option value="informatique">Informatique</option>
-            <option value="santé">Santé</option>
-            <option value="gestion">Gestion</option>
-            <option value="industrie">Industrie</option>
-            <option value="autre">Autre</option>
-          </select>
-        </div>
-
-        <div class="mb-6">
-          <label for="filiere" class="block text-gray-800 text-lg font-medium mb-2">Filière</label>
-          <input type="text" id="filiere" name="filiere" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
-        </div>
-
-        <div class="mb-6">
-          <label for="city" class="block text-gray-800 text-lg font-medium mb-2">Ville</label>
-          <input type="text" id="city" name="city" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
-        </div>
-
-        <div class="mb-6">
-          <label for="dob" class="block text-gray-800 text-lg font-medium mb-2">Date de naissance</label>
-          <input type="date" id="dob" name="dob" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]" />
-        </div>
-
-        <div class="mb-6">
-          <label for="goal" class="block text-gray-800 text-lg font-medium mb-2">Quel est votre objectif professionnel ?</label>
-          <textarea id="goal" name="goal" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]"></textarea>
-        </div>
-
-        <div class="mb-6">
-          <label for="additionalInfo" class="block text-gray-800 text-lg font-medium mb-2">Autres informations supplémentaires</label>
-          <textarea id="additionalInfo" name="additionalInfo" rows="4" class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#f4f8ff]"></textarea>
-        </div>
-
-        <button type="submit" class="w-full py-3 px-6 bg-blue-600 text-white font-bold text-xl rounded-lg hover:bg-blue-700 transition duration-300">Envoyer</button>
+        <button type="submit" class="w-full py-3 px-6 bg-blue-600 text-white font-bold text-xl rounded-lg hover:bg-blue-700 transition duration-300">Envoyer l'inscription</button>
       </form>
     </section>
   </main>

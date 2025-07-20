@@ -3,32 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nova Career - Entreprises</title>
-  <link rel="stylesheet" href="style-entreprises.css">
+  <title>ORIA - Entreprises</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Configuration personnalisée de Tailwind pour les couleurs */
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Définition des couleurs personnalisées pour Tailwind si non dans tailwind.config.js */
+    :root {
+      --color-primary: #1a237e; /* Votre couleur foncée pour header/footer/texte */
+      --color-accent: #3f51b5;  /* Votre couleur des boutons */
+      --color-hover-accent: #5c6bc0; /* Couleur des boutons au survol */
+      --color-light-bg: #f4f8ff; /* Couleur de fond du corps */
+      --color-link-hover: #c5cae9; /* Couleur de survol des liens */
+    }
+
+    /* Styles globaux et structurels avec variables CSS */
+    body {
+      background-color: var(--color-light-bg);
+      color: var(--color-primary);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Assure que le corps prend toute la hauteur de la fenêtre */
+    }
+
+    .header {
+      background-color: var(--color-primary);
+    }
+
+    .footer {
+      background-color: var(--color-primary);
+      margin-top: auto; /* Pousse le footer vers le bas */
+    }
+
+    /* Styles pour les cartes de profil qui ne sont pas purement utilitaires */
+    .profile-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .view-details-btn {
+        background-color: #28a745; /* Vert pour le bouton de détails */
+        transition: background-color 0.3s ease;
+    }
+    .view-details-btn:hover {
+        background-color: #218838;
+    }
+  </style>
 </head>
-<body>
-  <header class="header">
-    <h1>Nova Career</h1>
-    <nav>
-      <a href="PageD'acceuil.html">Accueil</a>
-      <a href="#">À propos</a>
-      <a href="#">Contact</a>
+<body class="font-sans">
+  <header class="header text-white p-4 flex flex-col md:flex-row justify-between items-center shadow-md rounded-bl-3xl rounded-br-3xl">
+    <h1 class="text-2xl font-bold mb-2 md:mb-0">ORIA</h1>
+    <nav class="nav">
+      <a href="PageD'acceuil.html" class="text-white mx-2 md:mx-4 text-lg hover:text-[var(--color-link-hover)] transition duration-300">Accueil</a>
+      <a href="#" class="text-white mx-2 md:mx-4 text-lg hover:text-[var(--color-link-hover)] transition duration-300">À propos</a>
+      <a href="#" class="text-white mx-2 md:mx-4 text-lg hover:text-[var(--color-link-hover)] transition duration-300">Contact</a>
+      <a href="form.html" class="text-white mx-2 md:mx-4 text-lg hover:text-[var(--color-link-hover)] transition duration-300">Inscription Étudiant</a>
     </nav>
   </header>
 
-  <main class="main-content">
-    <h2>Bienvenue sur votre espace entreprise</h2>
-    <p>Trouvez les talents qui correspondent à vos besoins grâce à l'IA intelligente de Nova Jobs.</p>
+  <main class="main-content text-center p-12 flex-grow max-w-7xl mx-auto bg-white rounded-lg shadow-xl my-8">
+    <h2 class="text-4xl text-[var(--color-primary)] font-bold mb-4">Bienvenue sur votre espace entreprise</h2>
+    <p class="text-xl text-gray-700 mb-10">Trouvez les talents qui correspondent à vos besoins grâce à l'IA intelligente d'ORIA.</p>
     
-    <div class="button-container">
-      <button onclick="consulterCV()">🔍 Consulter des CV</button>
-      <button onclick="posterOffre()">📤 Poster une offre</button>
-      <button onclick="analyserCandidats()">📊 Analyser les candidats</button>
+    <div class="button-container flex justify-center gap-6 flex-wrap mb-12">
+      <button onclick="consulterCV()" class="px-8 py-4 border-none bg-[var(--color-accent)] text-white text-lg rounded-full cursor-pointer shadow-md hover:bg-[var(--color-hover-accent)] transition duration-300 transform hover:-translate-y-1">🔍 Consulter des CV</button>
+      <button onclick="posterOffre()" class="px-8 py-4 border-none bg-[var(--color-accent)] text-white text-lg rounded-full cursor-pointer shadow-md hover:bg-[var(--color-hover-accent)] transition duration-300 transform hover:-translate-y-1">📤 Poster une offre</button>
+      <button onclick="analyserCandidats()" class="px-8 py-4 border-none bg-[var(--color-accent)] text-white text-lg rounded-full cursor-pointer shadow-md hover:bg-[var(--color-hover-accent)] transition duration-300 transform hover:-translate-y-1">📊 Analyser les candidats</button>
     </div>
+
+    <section id="cv-profiles-section" class="cv-profiles-section mt-12 pt-8 border-t border-gray-200" style="display: none;">
+      <h3 class="text-3xl text-[var(--color-primary)] font-bold mb-8">Profils d'Étudiants Disponibles</h3>
+      <div id="student-profiles-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <p id="loading-message" class="col-span-full text-gray-500">Cliquez sur "Consulter des CV" pour voir les profils simulés.</p>
+      </div>
+    </section>
+
+    <section id="post-offer-section" class="post-offer-section mt-12 pt-8 border-t border-gray-200 max-w-xl mx-auto" style="display: none;">
+      <h3 class="text-3xl text-[var(--color-primary)] font-bold mb-8">Poster une Nouvelle Offre</h3>
+      <form id="offerForm" class="text-left">
+        <div class="mb-6">
+          <label for="offerTitle" class="block text-gray-800 text-lg font-medium mb-2">Titre de l'offre</label>
+          <input type="text" id="offerTitle" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+        </div>
+        <div class="mb-6">
+          <label for="offerDescription" class="block text-gray-800 text-lg font-medium mb-2">Description de l'offre</label>
+          <textarea id="offerDescription" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"></textarea>
+        </div>
+        <div class="mb-6">
+          <label for="requiredSkills" class="block text-gray-800 text-lg font-medium mb-2">Compétences requises (séparées par des virgules)</label>
+          <input type="text" id="requiredSkills" class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white" />
+        </div>
+        <div class="mb-6">
+          <label for="offerType" class="block text-gray-800 text-lg font-medium mb-2">Type d'offre</label>
+          <select id="offerType" required class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white">
+            <option value="">-- Sélectionnez --</option>
+            <option value="stage">Stage</option>
+            <option value="emploi">Emploi</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-3 px-6 bg-blue-600 text-white font-bold text-xl rounded-lg hover:bg-blue-700 transition duration-300">Publier l'Offre</button>
+      </form>
+    </section>
   </main>
 
-  <footer>
-    <p>© 2025 Nova Minds - Tous droits réservés</p>
+  <footer class="footer text-white text-center p-4 shadow-inner rounded-tl-3xl rounded-tr-3xl">
+    <p>© 2025 ORIA - Tous droits réservés</p>
   </footer>
 
   <script src="script-entreprises.js"></script>

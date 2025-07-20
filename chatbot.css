@@ -1,0 +1,43 @@
+/* chatbot.css */
+
+/* Styles personnalisés ou overrides Tailwind */
+
+/* Styles spécifiques pour les bulles de message */
+.message-bubble {
+    word-wrap: break-word; /* Assure que le texte long ne dépasse pas */
+    /* Les couleurs et paddings sont principalement gérés par Tailwind directement dans le HTML */
+}
+
+/* Styles pour les messages du chatbot */
+.bot-message {
+    align-self: flex-start; /* Aligne les messages du bot à gauche */
+    margin-right: auto; /* Pousse la bulle à gauche en occupant l'espace restant à droite */
+}
+
+/* Styles pour les messages de l'utilisateur */
+.user-message {
+    align-self: flex-end; /* Aligne les messages de l'utilisateur à droite */
+    margin-left: auto; /* Pousse la bulle à droite en occupant l'espace restant à gauche */
+    background-color: #e0f2fe; /* Une couleur bleue très claire pour les messages utilisateur */
+    color: #1a237e; /* Couleur de texte sombre pour un bon contraste */
+}
+
+/* Vous pouvez ajouter d'autres styles personnalisés ici si nécessaire, par exemple: */
+/*
+body {
+    font-family: 'Arial', sans-serif;
+}
+*/
+
+/* Styles pour les animations, si vous voulez les regrouper ici plutôt que dans le JS */
+/*
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+*/
